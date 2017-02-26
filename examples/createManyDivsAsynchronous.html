@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        div {
+            text-align: center;
+            border: 1px solid black;
+            font-size: 200%;
+        }
+    </style>
+</head>
+<body>
+<script>
+    var wantedCount = 900000;
+    function createDiv(i) {
+        var newDiv = document.createElement('div');
+        newDiv.textContent = i;
+        document.body.appendChild(newDiv);
+        i++;
+        if(i < wantedCount) {
+            setTimeout(function () {
+                createDiv(i);
+            }, 0);
+        }
+    }
+    createDiv(0);
+</script>
+</body>
+</html>

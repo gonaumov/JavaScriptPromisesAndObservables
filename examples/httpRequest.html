@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="result">
+</div>
+<script>
+var request = new XMLHttpRequest(), result = document.getElementById("result");
+request.open('GET', '/result', false);  // `false` makes the request synchronous
+request.send(null);
+result.textContent = request.responseText;
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>jQuery deferred version</title>
+    <style type="text/css">
+        body {
+            text-align: center;
+        }
+
+        div {
+            border: 1px solid black;
+            width: 45%;
+            font-size: 200%;
+            display: inline-block;
+            margin: auto;
+        }
+
+        input {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="firstCounter">0</div>
+<div id="secondCounter">10000</div>
+<input type="button" value="Start counters" id="countersStart" onclick="startCounters(this);"/>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+    function startCounters(startInput) {
+        // remove input
+        startInput.parentNode.removeChild(startInput);
+
+        var firstCounterProcess = (function _handleFirstCounter() {
+            var dfd = jQuery.Deferred();
+
+            (function () {
+                var firstCounter = document.getElementById("firstCounter");
+                var currentValue = parseInt(firstCounter.textContent, 10);
+                firstCounter.textContent = ++currentValue;
+                if (currentValue < 10000) {
+                    setTimeout(arguments.callee, 0);
+                } else {
+                    dfd.resolve();
+                }
+            })();
+
+            return dfd.promise();
+        }());
+
+        var secondCounterProcess = (function _handleSecondCounter() {
+            var dfd = jQuery.Deferred();
+
+            (function () {
+                var secondCounter = document.getElementById("secondCounter");
+                var currentValue = parseInt(secondCounter.textContent, 10);
+                secondCounter.textContent = --currentValue;
+                if (currentValue > 0) {
+                    setTimeout(arguments.callee, 0);
+                } else {
+                    dfd.resolve();
+                }
+            })();
+
+            return dfd.promise();
+        }());
+
+        $.when(firstCounterProcess, secondCounterProcess).done(function () {
+            var newDiv = document.createElement('div');
+            newDiv.textContent = "All done!!!";
+            document.body.appendChild(newDiv);
+        });
+    }
+</script>
+</body>
+</html>

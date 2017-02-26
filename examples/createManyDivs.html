@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        div {
+            text-align: center;
+            border: 1px solid black;
+            font-size: 200%;
+        }
+    </style>
+</head>
+<body>
+<script>
+    for(var i = 0 ; i < 900000 ; i++) {
+        var newDiv = document.createElement('div');
+        newDiv.textContent = i;
+        document.body.appendChild(newDiv);
+    }
+</script>
+</body>
+</html>

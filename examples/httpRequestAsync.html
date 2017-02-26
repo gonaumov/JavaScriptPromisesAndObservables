@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="result">
+</div>
+<script>
+var request = new XMLHttpRequest(), result = document.getElementById("result");
+request.open('GET', '/result'); 
+request.addEventListener('load', function(data) {
+   result.textContent = request.responseText;
+});
+request.send(null);
+</script>
+</body>
+</html>

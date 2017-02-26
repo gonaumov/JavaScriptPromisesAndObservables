@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        div {
+            text-align: center;
+            border: 1px solid black;
+            font-size: 200%;
+        }
+    </style>
+</head>
+<body>
+<script>
+    var numberGeneratorWorker = new Worker('numberGeneratorWorker.js');
+    numberGeneratorWorker.onmessage = function(e) {
+        var newDiv = document.createElement('div');
+        newDiv.textContent = e.data;
+        document.body.appendChild(newDiv);
+    } 
+</script>
+</body>
+</html>
