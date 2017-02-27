@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/bacon.js/0.6.19/Bacon.js"></script>
+</head>
+<body>
+<h3>Events will appear below</h3>
+<ul id="events"></ul>
+<script>
+    var timer = Bacon.fromBinder(function (sink) {
+        var id = setInterval(function () {
+            sink(new Date().getTime())
+        }, 1000);
+        return function () {
+            clearInterval(id)
+        }
+    });
+
+    timer.take(5).onValue(function (value) {
+        $("#events").append($("<li>").text(value));
+    })
+</script>
+</body>
+</html>
