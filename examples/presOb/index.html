@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Examples</title>
+        <!-- This HTML is totally barbaric!-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+    </head>
+    
+    <body>
+        <h1>Examples</h1>
+        
+        <div id="example1">
+            <h2>Example: Observables will always be there for you!</h2>
+            <h3>(Keynote: an Observable (unlike a Promise) is not limited to a single return value. Think of it as an Iterable)</h3>
+            <button id="button1">Demo</button>
+            <br>
+            <div id="example1Res"></div>
+            <br>
+        </div>
+        
+        <div id="example2">
+            <h2>Example: Watching the clock already?</h2>
+            <h3>(Keynote: you can set how Observable emits values)</h3>
+            Timegap between values: <input id="ex2Timegap" value="500"> 
+            Elements to take: <input id="ex2Take" value="3"><br>
+            <button id="button2">Demo</button>
+            <br>
+            <div id="example2Res"></div>
+            <br>
+        </div>
+        
+        <div id="example3">
+            <h2>Example: Oooh, what does this button do?</h2>
+            <h3>(Keynote: you can use events as a source for an Observable)</h3>
+            
+            <!--<button id="button3">Demo</button>
+            <br>-->
+            <button id="button3ClickMe">Click me!</button>
+            <br>
+            <div id="example3Res"></div>
+            <br>
+        </div>
+        
+        <div id="example4">
+            <h2>Example: Dee Dee!!!</h2>
+            <h3>(Keynote: you can use the debounce function to ignore values emitted in rapid succession)</h3>
+            <button id="button4ClickMe">Click me!</button>
+            <br>
+            <div id="example4Res"></div>
+            <br>
+        </div>
+        
+        <div id="example5">
+            <h2>Example: Observables of all countries, unite!</h2>
+            <h3>(Keynote: you can combine different observables)</h3>
+            <button id="button5concat">Demo (concat)</button> <button id="button5merge">Demo (merge)</button> <button id="button5zip">Demo (zip)</button>
+            <br>
+            <div id="example5Res"></div>
+            <br>
+        </div>
+        
+        <div id="example6">
+            <h2>Example: If plan A fails, how about plan B?</h2>
+            <h3>(Keynote: you can use catch(o1, o2,...) to specify fallback Observable(s) which will take over if the previous one fails)</h3>
+            Elements to take O1: <input id="cnt1" value="3"><br>
+            Elements to take O2: <input id="cnt2" value="4"><br>
+            Elements to take O3: <input id="cnt3" value="5"><br>
+            <button id="button6">Demo</button>
+            <br>
+            <div id="example6Res"></div>
+            <br>
+        </div>
+        
+        <div id="example7">
+            <h2>Example: Third time's a charm!</h2>
+            <h3>(Keynote: you can use retry(n) to specify how many times to attemp executing an operation)</h3>
+            Retries: <input id="ex7retries" value="2"> <br>
+            <button id="button7">Demo</button>
+            <br>
+            <div id="example7Res"></div>
+            <br>
+        </div>
+        
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/rxjs/4.0.0/rx.all.js"></script>
+        
+        <script src="js/basicExample.js"></script>
+        <script src="js/timeDelayedExample.js"></script>
+        <script src="js/clickStreamExample.js"></script>
+        <script src="js/clickStreamDebounceExample.js"></script>
+        <script src="js/mixingStreamsExample.js"></script>
+        <script src="js/catchExample.js"></script>
+        <script src="js/retryExample.js"></script>
+    </body>
+    
+    
+</html>
